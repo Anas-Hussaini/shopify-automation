@@ -18,6 +18,10 @@ import { Badge } from "@/components/ui/badge";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 import { Separator } from "@/components/ui/separator";
+import { ROICalculator } from "@/components/roi-calculator";
+import { WorkflowVisualizer } from "@/components/workflow-visualizer";
+import { AIContentDemo } from "@/components/ai-demo";
+import { ProjectEstimator } from "@/components/project-estimator";
 
 export default function Home() {
   return (
@@ -45,6 +49,77 @@ export default function Home() {
             <Button size="lg" variant="outline">
               See Past Projects
             </Button>
+          </div>
+        </div>
+      </section>
+
+      {/* Live Interactive Demos */}
+      <section className="container mx-auto px-4 py-16 bg-white dark:bg-slate-950">
+        <div className="max-w-6xl mx-auto">
+          <div className="text-center mb-12">
+            <Badge className="mb-4" variant="secondary">
+              <Zap className="w-3 h-3 mr-2" />
+              Interactive Demos
+            </Badge>
+            <h2 className="text-3xl font-bold mb-3">
+              See Automation in <span className="bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">Action</span>
+            </h2>
+            <p className="text-muted-foreground max-w-2xl mx-auto">
+              Don't just read about automation—experience it! Try these live demos that showcase the power of AI and workflow automation.
+            </p>
+          </div>
+
+          <Tabs defaultValue="workflow" className="w-full">
+            <TabsList className="grid w-full grid-cols-2 md:grid-cols-4 h-auto mb-6">
+              <TabsTrigger value="workflow" className="py-3">
+                🔄 Workflow
+              </TabsTrigger>
+              <TabsTrigger value="roi" className="py-3">
+                💰 ROI Calc
+              </TabsTrigger>
+              <TabsTrigger value="ai" className="py-3">
+                🤖 AI Demo
+              </TabsTrigger>
+              <TabsTrigger value="estimate" className="py-3">
+                📊 Estimator
+              </TabsTrigger>
+            </TabsList>
+
+            <TabsContent value="workflow" className="mt-0">
+              <WorkflowVisualizer />
+            </TabsContent>
+
+            <TabsContent value="roi" className="mt-0">
+              <ROICalculator />
+            </TabsContent>
+
+            <TabsContent value="ai" className="mt-0">
+              <AIContentDemo />
+            </TabsContent>
+
+            <TabsContent value="estimate" className="mt-0">
+              <ProjectEstimator />
+            </TabsContent>
+          </Tabs>
+
+          <div className="mt-8 p-6 bg-gradient-to-r from-blue-50 to-purple-50 dark:from-blue-950 dark:to-purple-950 rounded-xl border border-blue-200 dark:border-blue-800">
+            <div className="flex items-start gap-4">
+              <div className="w-12 h-12 rounded-full bg-blue-600 flex items-center justify-center flex-shrink-0">
+                <Zap className="w-6 h-6 text-white" />
+              </div>
+              <div>
+                <h3 className="font-semibold mb-2">Why Interactive Demos Matter</h3>
+                <p className="text-sm text-muted-foreground mb-3">
+                  These aren't mockups—they're real, working demonstrations of automation principles. This hands-on approach shows exactly how your system will work before we build it.
+                </p>
+                <div className="flex flex-wrap gap-2">
+                  <Badge variant="secondary">🎯 See Real Results</Badge>
+                  <Badge variant="secondary">⚡ Test Features Live</Badge>
+                  <Badge variant="secondary">💡 Understand ROI</Badge>
+                  <Badge variant="secondary">🔧 Customize Your Needs</Badge>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </section>
